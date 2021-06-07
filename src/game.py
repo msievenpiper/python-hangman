@@ -79,7 +79,10 @@ class Game:
             self.finish('Win')
 
     def check_if_word_is_correctly_guessed(self):
-        return self.correct == list(dict.fromkeys(list(self.selected_word)))
+        listing = list(dict.fromkeys(list(self.selected_word)))
+        self.correct.sort()
+        listing.sort()
+        return self.correct == listing
 
     def print_correct_places(self):
         string = ''
@@ -98,7 +101,6 @@ class Game:
         else:
             print('You failed to guess: ' + self.selected_word)
             print('You were Hanged!!!')
-        exit()
 
     def print_current_guesses(self):
         string = 'You have currently guessed: '
